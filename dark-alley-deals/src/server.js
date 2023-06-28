@@ -1,5 +1,6 @@
 // DEPENDENCIES
 const express = require('express')
+const {Sequelize} = require('sequelize')
 
 
 // CONFIG
@@ -22,6 +23,6 @@ app.get("*", (req, res) => {
 });
 
 // LISTEN
-app.listen(PORT, () => {
-    console.log("Server is listening on port", PORT);
-});
+app.listen(process.env.PORT, () => {
+    console.log(`🛒💰 Shoppin' on port: ${process.env.PORT}`)
+}) 
