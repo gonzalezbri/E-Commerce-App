@@ -3,6 +3,7 @@ import {Button,Container} from '@mui/material'
 import {ThemeProvider} from '@mui/system'
 import theme from './styles/theme'
 import AppBar from "./components/appBar";
+import Banner from "./components/banner";
 
 function App (){
     useEffect(()=>{
@@ -16,15 +17,12 @@ function App (){
         sx={{
             background: '#212121'
         }}>
+            <AppBar />
+            <Banner />
             {
-                <AppBar/>
+                
             }
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
+            
 
         </Container>
         </ThemeProvider>
