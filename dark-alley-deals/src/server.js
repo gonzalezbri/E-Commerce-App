@@ -1,10 +1,11 @@
 // DEPENDENCIES
+
+require('dotenv').config();
 const express = require('express')
 const {Sequelize} = require('sequelize')
 
 
 // CONFIG
-require('dotenv').config();
 const PORT = process.env.PORT;
 console.log('My port is:', PORT);
 
@@ -23,6 +24,15 @@ app.get("*", (req, res) => {
 });
 
 // LISTEN
-app.listen(process.env.PORT, () => {
+app.listen(8000, () => {
+    const sequelize = new Sequelize(process.env.PG_URI);
+
+try {
+    sequelize.authenticate();
+    console.log(`Connected to database at ${process.env.PG_URI}`);
+} catch(e) {
+    console.log('Unable to connect to database', e);
+}
     console.log(`🛒💰 Shoppin' on port: ${process.env.PORT}`)
 }) 
+
