@@ -23,6 +23,21 @@ export const BannerContainer = styled(Box)(({ theme }) => ({
         padding: "30px",
     }));
 
+    export const BannerImage = styled("img")(({ src, theme }) => ({
+        src: `url(${src})`,
+        // backgroundImage: `url(${src})`,
+        // backgroundRepeat: "no-repeat",
+        // backgroundPosition: "center",
+        width: "500px",
+        [theme.breakpoints.down("md")]: {
+            width: "350px",
+        },
+        [theme.breakpoints.down("sm")]: {
+            width: "320px",
+            height: "300px",
+        },
+    }));
+
     export const BannerTitle = styled(Typography)(({ theme }) => ({
         lineHeight: 1.5,
         fontSize: "72px",

@@ -1,10 +1,11 @@
 import { Typography } from "@mui/material";
-import { BannerContainer, BannerContent, BannerDescription, BannerTitle } from "../styles/banner";
+import { BannerContainer, BannerContent, BannerDescription, BannerImage, BannerTitle } from "../styles/banner";
 
 
 export default function Banner (){
     return(
         <BannerContainer>
+            <BannerImage src="/images/banner.jpg"/>
         <BannerContent>
             <Typography variant="h6"> Dark Alley Collection</Typography>
             <BannerTitle variant="h2">NEW ITEMS</BannerTitle>
