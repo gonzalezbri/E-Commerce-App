@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/system";
 import theme from "./styles/theme";
 import AppBar from "./components/appBar";
 import { BrowserRouter, Routes } from "react-router-dom";
-import Home from "./views/places/Home";
+import Home from "./views/places/Home.js";
 import Clothes from "./views/places/Clothes.js";
 import Pets from "./views/places/Pets.js";
 import Vehicles from "./views/places/Vehicles.js";
@@ -23,7 +23,7 @@ function App() {
         <Container maxWidth="xl" sx={{ background: "#212121" }}>
           <BrowserRouter>
           <AppBar />
-            <Routes exact path="./views/places/Home" component={Home} />
+            <Routes exact path="./views/places/Home.js" component={Home} />
             <Routes exact path="./views/places/Clothes.js" component={Clothes} />
             <Routes exact path="./views/places/Pets.js" component={Pets} />
             <Routes exact path="./views/places/Vehicles.js" component={Vehicles} />
