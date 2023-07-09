@@ -2,6 +2,8 @@ import { Typography,List, Menu } from '@mui/material/';
 import {styled } from '@mui/material/styles';
 import { Box } from "@mui/material";
 import { Colors } from './theme';
+import { Link } from "react-router-dom";
+
 
 //container
 export const AppbarContainer = styled(Box)(() => ({    
@@ -39,4 +41,9 @@ export const StyledMenu = styled(Menu)(({ theme }) => ({
     "& .MuiPaper-root": {
       color: Colors.secondary,
     },
+  }));
+
+  export const StyledLink = styled(Link)(({ theme }) => ({
+    textDecoration: "none",
+    color: "inherit",
   }));

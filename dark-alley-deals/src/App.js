@@ -1,34 +1,24 @@
 import { useEffect } from "react";
-import {Button,Container} from '@mui/material'
-import {ThemeProvider} from '@mui/system'
-import theme from './styles/theme'
+import { Container } from "@mui/material";
+import { ThemeProvider } from "@mui/system";
+import theme from "./styles/theme";
 import AppBar from "./components/appBar";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App (){
-    useEffect(()=>{
-        document.title = 'Dark Alley Deals'
-    },[]);
+function App() {
+  useEffect(() => {
+    document.title = "Dark Alley Deals";
+  }, []);
 
-    return (
-        <ThemeProvider theme={theme}>
-        <Container 
-        maxWidth='xl'
-        sx={{
-            background: '#212121'
-        }}>
-            {
-                <AppBar/>
-            }
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-            <Button>Test</Button>
-
+  return (
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Container maxWidth="xl" sx={{ background: "#212121" }}>
+          <AppBar />
         </Container>
-        </ThemeProvider>
-    )
+      </ThemeProvider>
+    </Router>
+  );
 }
 
 export default App;
