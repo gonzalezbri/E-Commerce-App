@@ -1,4 +1,4 @@
-import { Typography,List } from '@mui/material/';
+import { Typography,List, Menu } from '@mui/material/';
 import {styled } from '@mui/material/styles';
 import { Box } from "@mui/material";
 import { Colors } from './theme';
@@ -24,5 +24,19 @@ export const MyList = styled(List)(({type})=>({
     display: type === 'row' ? 'flex' : 'block',
     flexGrow:3,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    color: Colors.secondary
 }));
+
+export const StyledMenu = styled(Menu)(({ theme }) => ({
+    "& .MuiPaper-root": {
+      backgroundColor: "black",
+      color: Colors.secondary,
+    },
+  }));
+
+  export const MenuItem = styled(Menu)(({ theme }) => ({
+    "& .MuiPaper-root": {
+      color: Colors.secondary,
+    },
+  }));
