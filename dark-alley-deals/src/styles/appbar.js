@@ -45,5 +45,5 @@ export const StyledMenu = styled(Menu)(({ theme }) => ({
 
   export const StyledLink = styled(Link)(({ theme }) => ({
     textDecoration: "none",
-    color: "inherit",
+    color: Colors.secondary,
   }));
