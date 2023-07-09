@@ -4,6 +4,7 @@ import {ThemeProvider} from '@mui/system'
 import theme from './styles/theme'
 import AppBar from "./components/appBar";
 import Banner from "./components/banner";
+import PromoBar from "./components/promobar";
 
 function App (){
     useEffect(()=>{
@@ -19,6 +20,7 @@ function App (){
         }}>
             <AppBar />
             <Banner />
+            <PromoBar/>
             {
                 
             }
