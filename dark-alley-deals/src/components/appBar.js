@@ -20,7 +20,9 @@ export default function AppBar() {
       <AppbarHeader>Dark Alley Deals</AppbarHeader>
       <MyList type="row">
         <ListItemButton>
+        <StyledLink to="../views/places/Home.js" >
           <ListItemText primary="Home" />
+        </StyledLink>
         </ListItemButton>
         <ListItemButton onClick={handleCategoriesClick}>
           <ListItemText primary="Categories" />
@@ -49,13 +51,19 @@ export default function AppBar() {
           </StyledLink>
         </StyledMenu>
         <ListItemButton>
+        <StyledLink to="../views/places/Sell.js" >
           <ListItemText primary="Sell" />
+        </StyledLink>
         </ListItemButton>
         <ListItemButton>
+        <StyledLink to="../views/places/SignUp.js" >
           <ListItemText primary="Sign Up" />
+        </StyledLink>
         </ListItemButton>
         <ListItemButton>
+        <StyledLink to="../views/places/SignIn.js" >
           <ListItemText primary="Sign In" />
+        </StyledLink>
         </ListItemButton>
       </MyList>
     </AppbarContainer>
