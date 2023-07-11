@@ -13,7 +13,6 @@ export default function AppBar(){
                 <ListItemButton primary='Home'>Home</ListItemButton>
                 <ListItemButton primary='Categories'>Categories</ListItemButton>
                 <ListItemButton primary='Sell'>Sell</ListItemButton>
-                <ListItemButton primary='SignUp'>SignUp</ListItemButton>
                 <ListItemButton primary='SignIn'>SignIn</ListItemButton>
             </MyList>
         </AppbarContainer>

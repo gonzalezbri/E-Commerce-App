@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import {Button,Container} from '@mui/material'
+import {Container} from '@mui/material'
 import {ThemeProvider} from '@mui/system'
 import theme from './styles/theme'
 import AppBar from "./components/appBar";
 import Banner from "./components/banner";
 import PromoBar from "./components/promobar";
+import  Products  from "./components/products/index";
 
 function App (){
     useEffect(()=>{
@@ -20,10 +21,8 @@ function App (){
         }}>
             <AppBar />
             <Banner />
+            <Products/>
             <PromoBar/>
-            {
-                
-            }
             
 
         </Container>
