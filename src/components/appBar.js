@@ -11,9 +11,9 @@ export default function AppBar(){
             <AppbarHeader>Dark Alley Deals</AppbarHeader>
             <MyList type='row'>
                 <ListItemButton primary='Home'>Home</ListItemButton>
-                <ListItemButton primary='Categories'>Categories</ListItemButton>
                 <ListItemButton primary='Sell'>Sell</ListItemButton>
                 <ListItemButton primary='SignIn'>SignIn</ListItemButton>
+                <ListItemButton primary='Cart'>Cart</ListItemButton>
             </MyList>
         </AppbarContainer>
     )
