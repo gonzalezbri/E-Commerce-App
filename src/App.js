@@ -1,15 +1,18 @@
-import { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import {Button,Container} from '@mui/material'
 import {ThemeProvider} from '@mui/system'
 import theme from './styles/theme'
+
+//Components
 import AppBar from "./components/appBar";
+import ListItem from "./components/ListItems";
+
+
 
 function App (){
-    useEffect(()=>{
-        document.title = 'Dark Alley Deals'
-    },[]);
 
     return (
+        <div>
         <ThemeProvider theme={theme}>
         <Container 
         maxWidth='xl'
@@ -28,6 +31,10 @@ function App (){
 
         </Container>
         </ThemeProvider>
+        <Fragment>
+            <ListItem />
+        </Fragment>
+        </div>
     )
 }
 
