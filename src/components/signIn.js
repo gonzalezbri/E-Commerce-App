@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, ThemeProvider,createTheme } from '@mui/material';
-import  {Colors,theme} from "../styles/theme/index"
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import {Colors} from "../styles/theme/index"
 
 const SignInModal = ({ isOpen, onClose }) => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -29,20 +29,10 @@ const SignInModal = ({ isOpen, onClose }) => {
       console.log('Email:', email);
       console.log('Password:', password);
     };
-
-    const theme = createTheme({
-      palette: {
-        primary: {
-          main: Colors.primary, 
-        },
-      },
-    });
-    
   
     return (
       <div>
-        <ThemeProvider theme={theme}>
-        <Button variant="outlined" onClick={handleOpen}>
+        <Button variant="outlined" color="secondary" onClick={handleOpen}>
           Sign In
         </Button>
         <Dialog open={modalOpen} onClose={handleClose}>
@@ -76,7 +66,6 @@ const SignInModal = ({ isOpen, onClose }) => {
             </Button>
           </DialogActions>
         </Dialog>
-        </ThemeProvider>
       </div>
     );
   };
