@@ -22,11 +22,11 @@ function App (){
         }}>
             <AppBar />
             <Banner />
+            <PromoBar/>
             <Box display='flex' justifyContent={'center'} sx={{p:4}}>
-                <Typography variant="h4"></Typography>
+                <Typography  color='secondary' variant="h4">Products In Stock</Typography>
             </Box>
             <Products/>
-            <PromoBar/>           
         </Container>
         </ThemeProvider>
     )

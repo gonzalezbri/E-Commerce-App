@@ -1,6 +1,5 @@
 import { useTheme } from "@emotion/react";
 import { Container, Grid } from "@mui/material";
-//import {products} from "../../data/index"
 import  SingleProduct  from './singleProduct'
 import {useState, useEffect} from 'react'
 
