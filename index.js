@@ -20,17 +20,21 @@ app.get('/', async(req, res) => {
     }
 })
 
-//POST create a inv submission
-app.post('/sell', async (req, res) => {
+// POST create an inv submission
+app.post('/', async (req, res) => {
     try {
-        const { item_name } = req.body;
-        console.log(item_name)
-        const newItem = await pool.query("INSERT INTO inv(item_name) VALUES($1) RETURNING *", [item_name]);
-        res.json(newItem);
+      const { item_type, item_name, item_picture, item_price, item_description } = req.body;
+      const newItem = await pool.query(
+        "INSERT INTO inv (item_type, item_name, item_picture, item_price, item_description) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        [item_type, item_name, item_picture, item_price, item_description]
+      );
+      res.json(newItem);
     } catch (error) {
-        console.log(err.message)
+      console.log(error.message);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
-})
+  });
+  
 
 
 //GET one item
@@ -46,19 +50,23 @@ app.get('/:id', async(req, res) => {
     }
 })
 
-//UPDATE an item price
+// UPDATE an item price and picture
 app.put('/:id', async (req, res) => {
     try {
-        const {id} = req.params;
-        const {item_price} = req.body;
-        const updateItem = await pool.query("UPDATE inv SET item_price = $1 WHERE item_id = $2", [item_price, id]);
-        res.json('price was updated')
-
+      const { id } = req.params;
+      const { item_price, item_picture } = req.body;
+      const updateItem = await pool.query(
+        "UPDATE inv SET item_price = $1, item_picture = $2 WHERE item_id = $3",
+        [item_price, item_picture, id]
+      );
+      res.json("Price and picture were updated successfully");
     } catch (error) {
-        console.log(error.message)
+      console.error(error.message);
+      res.status(500).json("An error occurred while updating the price and picture");
     }
-
-})
+  });
+  
+  
 
 //DELETE an item
 app.delete('/:id', async (req, res) => {
