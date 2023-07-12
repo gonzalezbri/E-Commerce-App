@@ -1,5 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
 
+import { Typography } from "@mui/material";
+
+
+
+
+//productMeta
+
+
+
+
 const ListItems = () => {
 
     const [items, setItems] = useState([])
@@ -24,32 +34,24 @@ const ListItems = () => {
 
 
     return (
-    <Fragment>
-        <table>
-        <thead>
-            <tr>
+    
+    
+        <div className="card-container">
 
-            </tr>
-        </thead>
-        <tbody>
             {items.map(item => (
-                <tr>
-                    <td>
-                        <div>
-                        <h3>
-                        {item.item_name} |
-                        {item.item_price}|
-                        {item.item_description}
-                        </h3>
-                        <img style={{maxWidth:300}}src={item.item_picture}/>
-                        </div>
-                    </td>
-                </tr>
-            ))}
-        </tbody>
-        </table>
+            <div class="itemCard">
 
-    </Fragment>
+                <img style={{maxWidth:300}}src={item.item_picture} alt="Item Image" class="itemCard__image"/>
+            
+                <h3 class="itemCard__name">{item.item_name}</h3>
+                <p class="itemCard__price">{item.item_price} BTC</p>
+            </div>
+
+            ))}
+        </div>
+
+
+
     )
 }
 

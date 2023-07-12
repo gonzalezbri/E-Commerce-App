@@ -1,20 +1,26 @@
-import React, { Fragment } from 'react'
-import './App.css';
+import React, { Fragment, useEffect } from 'react';
+import './App.css'; // Import the CSS file
 
-//components
 import InputItem from './components/InputItem';
 import ListItems from './components/ListItems';
+import Banner from './components/banner'; // Import the Banner component
 
 function App() {
+  useEffect(() => {
+    document.title = 'Dark Alley Deals';
+  }, []);
+
   return (
-    <Fragment>
-      <InputItem/>
-      <ListItems />
+    <div className='appContainer'>
+      <Fragment>
+        <Banner /> {/* Add the Banner component */}
+      </Fragment>
 
-    </Fragment>
-
-    
-
+      <Fragment>
+        <InputItem />
+        <ListItems />
+      </Fragment>
+    </div>
   );
 }
 

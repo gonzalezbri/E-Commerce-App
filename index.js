@@ -21,7 +21,7 @@ app.get('/', async(req, res) => {
 })
 
 //POST create a inv submission
-app.post('/', async (req, res) => {
+app.post('/sell', async (req, res) => {
     try {
         const { item_name } = req.body;
         console.log(item_name)
