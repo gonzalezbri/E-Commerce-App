@@ -26,7 +26,7 @@ export default function Products() {
     console.log(items)
 
     const renderProducts = items.map(item =>(
-        <Grid item key={item.item_id} xs={2} sm={4} md={4} disply="flex" flexDirection={"column"} 
+        <Grid item key={item.item_id} xs={2} sm={4} md={4} display="flex" flexDirection={"column"} 
         alignItems="center">
             <SingleProduct item={item}/>
         </Grid>

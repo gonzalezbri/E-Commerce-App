@@ -1,4 +1,4 @@
-import { Product, ProductImage } from "../../styles/Products";
+import { Product, ProductAddToCart, ProductImage } from "../../styles/Products";
 import ProductMeta from "./productMeta";
 
 
@@ -7,6 +7,8 @@ export default function SingleProduct({item}) {
         <Product>
             <ProductImage src={item.item_picture} />
             <ProductMeta item = {item}/>
-        </Product>
+            <ProductAddToCart variant="contained">Add to Cart</ProductAddToCart>
+        </Product> 
+        
     )
 }
