@@ -1,8 +1,9 @@
-import { Typography,List, Menu } from '@mui/material/';
+import { Typography,List, Button } from '@mui/material/';
 import {styled } from '@mui/material/styles';
 import { Box } from "@mui/material";
 import { Colors } from './theme';
 import { Link } from "react-router-dom";
+import { TextField } from "@mui/material";
 
 
 //container
@@ -30,20 +31,32 @@ export const MyList = styled(List)(({type})=>({
     color: Colors.secondary
 }));
 
-export const StyledMenu = styled(Menu)(({ theme }) => ({
-    "& .MuiPaper-root": {
-      backgroundColor: "black",
-      color: Colors.secondary,
-    },
-  }));
-
-  export const MenuItem = styled(Menu)(({ theme }) => ({
-    "& .MuiPaper-root": {
-      color: Colors.secondary,
-    },
-  }));
-
   export const StyledLink = styled(Link)(({ theme }) => ({
+    textDecoration: "none",
+    color: Colors.secondary,
+  }));
+
+export const MyTextField = styled(TextField)(({ theme }) => ({
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "white",
+    },
+    "&:hover fieldset": {
+      borderColor: "white",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "white",
+    },
+  },
+  "& .MuiOutlinedInput-input": {
+    color: "white", // Text color
+  },
+  "& .MuiInputLabel-root": {
+    color: "white", // Label color
+  },
+}));
+
+  export const MyButton = styled(Button)(({ theme }) => ({
     textDecoration: "none",
     color: Colors.secondary,
   }));
