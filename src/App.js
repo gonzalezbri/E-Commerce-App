@@ -6,6 +6,7 @@ import AppBar from "./components/appBar";
 import Banner from "./components/banner";
 import PromoBar from "./components/promobar";
 import Products  from "./components/products/index";
+//import ListItems from "./components/products/Item";
 
 function App (){
     useEffect(()=>{
@@ -25,9 +26,7 @@ function App (){
                 <Typography variant="h4"></Typography>
             </Box>
             <Products/>
-            <PromoBar/>
-            
-
+            <PromoBar/>           
         </Container>
         </ThemeProvider>
     )

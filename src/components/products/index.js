@@ -1,16 +1,35 @@
 import { useTheme } from "@emotion/react";
 import { Container, Grid } from "@mui/material";
-import {products} from "../../data/index"
+//import {products} from "../../data/index"
 import  SingleProduct  from './singleProduct'
-
+import {useState, useEffect} from 'react'
 
 export default function Products() {
     const theme= useTheme();
+    const [items, setItems] = useState([])
 
-    const renderProducts = products.map(product =>(
-        <Grid item key={product.id} xs={2} sm={4} md={4} disply="flex" flexDirection={"column"} 
+    const getItems = async () => {
+        try {
+            const response = await fetch("http://localhost:5000")
+            const jsonData = await response.json();
+
+            setItems(jsonData);
+        } catch (err) {
+            console.error(err.message);
+
+        }
+    }
+
+    useEffect(() => {
+        getItems();
+        }, []);
+
+    console.log(items)
+
+    const renderProducts = items.map(item =>(
+        <Grid item key={item.item_id} xs={2} sm={4} md={4} disply="flex" flexDirection={"column"} 
         alignItems="center">
-            <SingleProduct product={product}/>
+            <SingleProduct item={item}/>
         </Grid>
     ));
     return(

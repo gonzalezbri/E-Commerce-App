@@ -3,12 +3,12 @@ import { ProductMetaWrapper } from "../../styles/Products";
 
 
 
-export default function ProductMeta ({product}) {
+export default function ProductMeta ({item}) {
 
     return (
         <ProductMetaWrapper>
-            <Typography variant={'h6'} lineHeight={2}>{product.name}</Typography>
-            <Typography variant={'caption'}>${product.price}</Typography>
+            <Typography variant={'h6'} lineHeight={2}>{item.item_name}</Typography>
+            <Typography variant={'caption'}>${item.item_price}</Typography>
         </ProductMetaWrapper>
     )
 }

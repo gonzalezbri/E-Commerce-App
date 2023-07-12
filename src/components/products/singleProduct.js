@@ -2,11 +2,11 @@ import { Product, ProductImage } from "../../styles/Products";
 import ProductMeta from "./productMeta";
 
 
-export default function SingleProduct({product}) {
+export default function SingleProduct({item}) {
     return (
         <Product>
-            <ProductImage src={product.image} />
-            <ProductMeta product = {product}/>
+            <ProductImage src={item.item_picture} />
+            <ProductMeta item = {item}/>
         </Product>
     )
 }
