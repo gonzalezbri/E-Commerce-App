@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { AppbarContainer, AppbarHeader,MyList } from "../styles/appbar";
+import { AppbarContainer, AppbarHeader,MyList,Div } from "../styles/appbar";
 import React, { useState } from 'react';
 import { Toolbar, ListItemButton } from '@mui/material';
 import SignInModal from './signIn';
@@ -14,9 +14,15 @@ export default function AppBar(){
         setOpenModal(true);
         };
 
+        const RefreshPage = () => {
+            window.location.reload(); // Refresh the page
+            };
+
         return (
+            <Div>
             <AppbarContainer position={"static"} sx={{background:'#212121'}}>
-                <AppbarHeader>Dark Alley Deals</AppbarHeader>
+                <ListItemButton onClick={RefreshPage}>
+                <AppbarHeader>Dark Alley Deals</AppbarHeader></ListItemButton>
                 <Toolbar>
                 <MyList type='row'>
                     <ListItemButton component={Link} to="/" primary='Home'>
@@ -34,5 +40,6 @@ export default function AppBar(){
                 </MyList>
                 </Toolbar>
             </AppbarContainer>
+            </Div>
         )
         }
