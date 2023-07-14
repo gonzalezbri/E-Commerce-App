@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTheme } from "@emotion/react";
-import { Container, Grid, Dialog, DialogTitle, DialogContent } from "@mui/material";
+import { Container, Grid, Dialog, DialogTitle, DialogContent, Typography } from "@mui/material";
 import  SingleProduct  from './singleProduct'
 import {useState, useEffect, Fragment} from 'react'
 import Button from "@mui/material/Button";
@@ -60,12 +60,14 @@ export default function Products() {
 
             </Grid>
 
-            <Dialog open={isDialogOpen} onClose={handleClose}>
+            <Dialog color="secondary" open={isDialogOpen} onClose={handleClose}>
                 {selectedItem && (
                     <Fragment>
                         <DialogTitle>{selectedItem.item_name}</DialogTitle>
                         <DialogContent>
                             <ProductImage src={selectedItem.item_picture} alt={selectedItem.item_name} />
+                            <Typography variant='body1'>{selectedItem.item_description}</Typography>
+                            <hr></hr>
                             <Button variant="outlined">Buy Now !</Button>
                         </DialogContent>
                     </Fragment>
