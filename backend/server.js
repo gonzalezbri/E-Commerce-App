@@ -84,29 +84,27 @@ const cartItems = [];
 
 // GET route to fetch the cart items
 app.get('/cart', (req, res) => {
-    res.setHeader('Content-Type', 'application/json'); // Set the Content-Type header
-    res.status(200).json(cartItems); // Send the cart items as JSON
-  });
-  
+  res.setHeader('Content-Type', 'application/json'); // Set the Content-Type header
+  res.status(200).json(cartItems); // Send the cart items as JSON
+});
 
 // POST route to add an item to the cart
 app.post('/addToCart', (req, res) => {
-    const { itemId, itemName, quantity } = req.body;
-  
-    // Create a new item object and add it to the cartItems array
-    const newItem = {
-      itemId,
-      itemName,
-      quantity,
-    };
-    cartItems.push(newItem);
-  
-    res.json({ message: 'Item added to cart successfully' });
-  });
-  
-  app.listen(5000, () => {
-    console.log('🛒💰 Shopping on port 5000');
-  });
+  const { itemId, itemName, quantity } = req.body;
 
+  // Create a new item object and add it to the cartItems array
+  const newItem = {
+    itemId,
+    itemName,
+    quantity,
+  };
+  cartItems.push(newItem);
+
+  res.json({ message: 'Item added to cart successfully' });
+});
+
+app.listen(5000, () => {
+  console.log('🛒💰 Shopping on port 5000');
+});
 
 
