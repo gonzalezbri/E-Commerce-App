@@ -1,44 +1,62 @@
-import { useTheme } from "@emotion/react";
-import { Container, Grid } from "@mui/material";
-import  SingleProduct  from './singleProduct'
-import {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
+import { Container, Grid, Dialog, DialogTitle, DialogContent, Typography } from '@mui/material';
+import SingleProduct from './singleProduct';
 
-export default function Products() {
-    const theme= useTheme();
-    const [items, setItems] = useState([])
+const Products = () => {
+  const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    const getItems = async () => {
-        try {
-            const response = await fetch("http://localhost:5000")
-            const jsonData = await response.json();
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/');
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-            setItems(jsonData);
-        } catch (err) {
-            console.error(err.message);
+    fetchItems();
+  }, []);
 
-        }
-    }
+  const handleClick = (item) => {
+    setSelectedItem(item);
+    setIsDialogOpen(true);
+  };
 
-    useEffect(() => {
-        getItems();
-        }, []);
+  const handleClose = () => {
+    setSelectedItem(null);
+    setIsDialogOpen(false);
+  };
 
-    console.log(items)
+  const renderProducts = items.map((item) => (
+    <Grid item key={item.item_id} xs={12} sm={6} md={4} lg={3}>
+      <SingleProduct item={item} handleClick={handleClick} />
+    </Grid>
+  ));
 
-    const renderProducts = items.map(item =>(
-        <Grid item key={item.item_id} xs={2} sm={4} md={4} display="flex" flexDirection={"column"} 
-        alignItems="center">
-            <SingleProduct item={item}/>
-        </Grid>
-    ));
-    return(
-        <Container>
-            <Grid container spacing={{xs:2, md:3}} justifyContent={"center"} 
-            sx={{ margin: '20px 4px 10px 4px'}}
-            columns={{xs:4, sm:8, md: 12}}>
-                {renderProducts}
+  return (
+    <Container>
+      <Grid container spacing={2}>
+        {renderProducts}
+      </Grid>
 
-            </Grid>
-        </Container>
-    )
+      <Dialog open={isDialogOpen} onClose={handleClose}>
+        {selectedItem && (
+          <>
+            <DialogTitle>{selectedItem.item_name}</DialogTitle>
+            <DialogContent>
+              <Typography variant="body1">{selectedItem.item_description}</Typography>
+              <Typography variant="body2">Price: ${selectedItem.item_price}</Typography>
+            </DialogContent>
+          </>
+        )}
+      </Dialog>
+    </Container>
+  );
 };
+
+export default Products;
+
