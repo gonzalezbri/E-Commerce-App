@@ -63,10 +63,10 @@ export default function Products() {
             <Dialog color="secondary" open={isDialogOpen} onClose={handleClose}>
                 {selectedItem && (
                     <Fragment>
-                        <DialogTitle>{selectedItem.item_name}</DialogTitle>
-                        <DialogContent>
+                        <DialogTitle color='secondary' style={{backgroundColor: '#212120'}}>{selectedItem.item_name}</DialogTitle>
+                        <DialogContent style={{backgroundColor: '#212120'}}>
                             <ProductImage src={selectedItem.item_picture} alt={selectedItem.item_name} />
-                            <Typography variant='body1'>{selectedItem.item_description}</Typography>
+                            <Typography variant='body1' color='white'>{selectedItem.item_description}</Typography>
                             <hr></hr>
                             <Button variant="outlined">Buy Now !</Button>
                         </DialogContent>

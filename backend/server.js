@@ -21,16 +21,21 @@ app.get('/', async(req, res) => {
 })
 
 //POST create a inv submission
+// POST create an inv submission
 app.post('/', async (req, res) => {
     try {
-        const { item_name } = req.body;
-        console.log(item_name)
-        const newItem = await pool.query("INSERT INTO inv(item_name) VALUES($1) RETURNING ", [item_name]);
-        res.json(newItem);
+      const { item_name, item_picture, item_price, item_description } = req.body;
+      const newItem = await pool.query(
+        "INSERT INTO inv(item_name, item_picture, item_price, item_description) VALUES($1, $2, $3, $4) RETURNING *",
+        [item_name, item_picture, item_price, item_description]
+      );
+      res.json(newItem.rows[0]);
+     // Refresh the page
     } catch (error) {
-        console.log(err.message)
+      console.error(error.message);
+      res.status(500).json("An error occurred while creating the inv submission");
     }
-})
+  });
 
 
 //GET one item
