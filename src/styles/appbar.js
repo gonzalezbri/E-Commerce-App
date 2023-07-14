@@ -10,9 +10,21 @@ export const AppbarContainer = styled(Box)(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '0px 0px',
-    backgorundColor: '#212120'
+    backgroundColor: '#212120'
 }));
 
+export const Div = styled(Box)(() => ({    
+    position: 'sticky', 
+    top: 0, 
+    width: '100%', 
+    zIndex: 1,
+    backgroundColor: '#212120',
+    padding: '0px 0px',
+    display: 'flex',
+    justifyContent: 'center',
+    paddingBottom: '-1px'
+    //alignItems: 'center'
+}));
 //header
 export const AppbarHeader = styled(Typography)(() => ({
     padding: "4px",
