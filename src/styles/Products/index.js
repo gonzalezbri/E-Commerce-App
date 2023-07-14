@@ -13,6 +13,7 @@ export const Product = styled(Box)(()=> ({
 export const ProductImage = styled("img")(({ src }) => ({
     src: `url(${src})`,
     width: "100%",
+    height: "300px",
     background: Colors.light_gray,
     padding: '10px',
 }));

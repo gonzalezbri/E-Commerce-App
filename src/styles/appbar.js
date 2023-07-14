@@ -9,7 +9,8 @@ export const AppbarContainer = styled(Box)(() => ({
     marginTop: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '2px 8px'
+    padding: '0px 0px',
+    backgorundColor: '#212120'
 }));
 
 //header
@@ -17,7 +18,7 @@ export const AppbarHeader = styled(Typography)(() => ({
     padding: "4px",
     flexGrow: 1,
     fontSize: "4em",
-    color: Colors.secondary
+    color: Colors.secondary,
 }));
 
 export const MyList = styled(List)(({type})=>({

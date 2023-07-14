@@ -10,6 +10,7 @@ export const BannerContainer = styled(Box)(({ theme }) => ({
     height: "100%",
     padding: "0px 0px",
     background: Colors.light_gray,
+    
     // backgroundImage: `url(/images/banner/banner.png)`,
     // backgroundRepeat: "no-repeat",
     // backgroundPosition: "center",

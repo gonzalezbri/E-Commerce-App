@@ -12,13 +12,19 @@ export default function AppBar(){
     const handleOpenModal = () => {
         setOpenModal(true);
         };
+    
+    const handleHomeClick = () => {
+        window.location.reload(); // Refresh the page
+        };
 
     return (
         <AppbarContainer position={"static"}>
-            <AppbarHeader>Dark Alley Deals</AppbarHeader>
+            <ListItemButton onClick={handleHomeClick}>
+      <AppbarHeader>Dark Alley Deals </AppbarHeader>
+      </ListItemButton>
             <Toolbar>
             <MyList type='row'>
-                <ListItemButton primary='Home'>Home</ListItemButton>
+                <ListItemButton onClick={handleHomeClick} primary='Home'>Home</ListItemButton>
                 <ListItemButton primary='Sell'>Sell</ListItemButton>
                 <ListItemButton onClick={handleOpenModal} primary='SignIn'>
                 <SignInModal isOpen={openModal} onClose={() => setOpenModal(false)} /></ListItemButton>
@@ -26,5 +32,6 @@ export default function AppBar(){
             </MyList>
             </Toolbar>
         </AppbarContainer>
+      
     )
 }
