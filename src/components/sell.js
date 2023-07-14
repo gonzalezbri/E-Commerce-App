@@ -18,14 +18,15 @@ const SellModal = ({isOpen, onClose}) => {
         // Implement your submit logic here
     };
 
+
     return (
         <div>
-            <Button variant="outlined" color="secondary" onClick={handleOpen}>
+            <Button variant="outlined" color="secondary"  onClick={handleOpen}>
                 Sell
             </Button>
-            <Dialog open={modalOpen} onClose={handleClose}>
-                <DialogTitle>Sell</DialogTitle>
-                <DialogContent>
+            <Dialog  open={modalOpen} onClose={handleClose}>
+                <DialogTitle style={{backgroundColor: '#212120', color: '#d1adcc'}}>Sell</DialogTitle>
+                <DialogContent style={{backgroundColor: '#c9c9c9'}}>
                     <form onSubmit={handleSubmit}>
                     <TextField
                         label="Product Name"
@@ -49,12 +50,12 @@ const SellModal = ({isOpen, onClose}) => {
                     />
                     </form>
                 </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                <DialogActions style={{backgroundColor: '#212120'}}>
+                    <Button onClick={handleClose} color="secondary">
                     Cancel
                     </Button>
-                    <Button onClick={handleSubmit} color="primary">
-                    Sign In
+                    <Button onClick={handleSubmit} color="secondary">
+                    Submit
                     </Button>
                 </DialogActions>
         </Dialog>
