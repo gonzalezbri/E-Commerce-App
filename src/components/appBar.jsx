@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Toolbar, ListItemButton } from '@mui/material';
 import SignInModal from './signIn';
 import { Link } from 'react-router-dom';
+import SellModal from "./sell";
 
 
 
@@ -28,8 +29,8 @@ export default function AppBar(){
                     <ListItemButton component={Link} to="/" primary='Home'>
                     Home
                     </ListItemButton>
-                    <ListItemButton component={Link} to="/sell" primary='Sell'>
-                    Sell
+                    <ListItemButton onClick={handleOpenModal} primary='Sell'>
+                    <SellModal isOpen={openModal} onClose={() => setOpenModal(false)}/>
                     </ListItemButton>
                     <ListItemButton onClick={handleOpenModal} primary='SignIn'>
                     <SignInModal isOpen={openModal} onClose={() => setOpenModal(false)} />
