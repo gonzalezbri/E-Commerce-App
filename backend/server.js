@@ -104,7 +104,7 @@ app.post('/addToCart', (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log('🛒💰 Shopping on port 5000');
+  console.log('🛒💰 Shopping on port 5000'); 
 });
 
 

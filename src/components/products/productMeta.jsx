@@ -12,4 +12,4 @@ export default function ProductMeta ({item}) {
             <Typography color='#FFC107' variant={'h6'}>${item.item_price}</Typography>
         </ProductMetaWrapper>
     )
-}
+} 

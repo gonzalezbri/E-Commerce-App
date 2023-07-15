@@ -97,4 +97,4 @@ const SellModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default SellModal;
+export default SellModal; 

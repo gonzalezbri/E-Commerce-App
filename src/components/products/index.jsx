@@ -56,7 +56,7 @@ const Products = () => {
       </Dialog>
     </Container>
   );
-};
+}; 
 
 export default Products;
 

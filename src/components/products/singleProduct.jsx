@@ -20,7 +20,7 @@ export default function SingleProduct({ item }) {
         itemId: item.item_id,
         itemName: item.item_name,
         quantity: 1
-      })
+      }) 
     })
       .then(response => response.json())
       .then(data => {
