@@ -20,18 +20,20 @@ app.get('/', async (req, res) => {
   }
 });
 
-// POST create an inventory item
 app.post('/', async (req, res) => {
   try {
-    const { item_name } = req.body;
-    console.log(item_name);
-    const newItem = await pool.query('INSERT INTO inv(item_name) VALUES($1) RETURNING *', [item_name]);
+    const { item_name, item_picture, item_price, item_description } = req.body;
+    const newItem = await pool.query(
+      'INSERT INTO inv (item_name, item_picture, item_price, item_description) VALUES ($1, $2, $3, $4) RETURNING *',
+      [item_name, item_picture, item_price, item_description]
+    );
     res.json(newItem.rows[0]);
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     res.status(500).json(error);
   }
 });
+
 
 // GET a single item
 app.get('/:id', async (req, res) => {
@@ -48,21 +50,25 @@ app.get('/:id', async (req, res) => {
   }
 });
 
-// UPDATE an item price
+// UPDATE an item
 app.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { item_price } = req.body;
-    const updateItem = await pool.query('UPDATE inv SET item_price = $1 WHERE item_id = $2 RETURNING *', [item_price, id]);
+    const { item_name, item_picture, item_price, item_description } = req.body;
+    const updateItem = await pool.query(
+      'UPDATE inv SET item_name = $1, item_picture = $2, item_price = $3, item_description = $4 WHERE item_id = $5 RETURNING *',
+      [item_name, item_picture, item_price, item_description, id]
+    );
     if (updateItem.rows.length === 0) {
       return res.status(404).json({ message: 'Item not found' });
     }
-    res.json({ message: 'Price was updated', updatedItem: updateItem.rows[0] });
+    res.json({ message: 'Item was updated', updatedItem: updateItem.rows[0] });
   } catch (error) {
     console.log(error.message);
     res.status(500).json(error);
   }
 });
+
 
 // DELETE an item
 app.delete('/:id', async (req, res) => {

@@ -2,52 +2,52 @@ import React, { useState } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 
 const SellModal = ({ isOpen, onClose }) => {
-    const [item_name, setItemName] = useState("");
-    const [item_picture, setItemPicture] = useState("");
-    const [item_description, setItemDescription] = useState("");
-    const [item_price, setItemPrice] = useState("");
+  const [item_name, setItemName] = useState('');
+  const [item_picture, setItemPicture] = useState('');
+  const [item_description, setItemDescription] = useState('');
+  const [item_price, setItemPrice] = useState('');
 
-    const handleOpen = () => {
-    setItemName("");
-    setItemPicture("");
-    setItemDescription("");
-    setItemPrice("");
-    };
+  const handleOpen = () => {
+    setItemName('');
+    setItemPicture('');
+    setItemDescription('');
+    setItemPrice('');
+  };
 
-    const handleClose = () => {
+  const handleClose = () => {
     onClose();
-    };
+  };
 
-    const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const body = {
+      const body = {
         item_name,
         item_picture,
         item_description,
         item_price,
-        };
-        const response = await fetch("http://localhost:5000", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      };
+      const response = await fetch('http://localhost:5000/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
-        });
-        if (response.ok) {
+      });
+      if (response.ok) {
         // Perform any necessary actions, e.g., display a success message
-        console.log("Item added successfully");
+        console.log('Item added successfully');
         handleClose();
-        } else {
+      } else {
         // Handle the error case, e.g., display an error message
-        console.error("Failed to add item");
-        }
+        console.error('Failed to add item');
+      }
     } catch (error) {
-        console.error(error.message);
+      console.error(error.message);
     }
-    };
+  };
 
-    return (
+  return (
     <div>
-        <Button variant="outlined" color="secondary" onClick={handleOpen}>
+      <Button variant="outlined" color="secondary" onClick={handleOpen}>
         Sell
       </Button>
       <Dialog open={isOpen} onClose={handleClose}>
@@ -78,6 +78,7 @@ const SellModal = ({ isOpen, onClose }) => {
             <TextField
               label="Product Price"
               fullWidth
+              type="number"
               value={item_price}
               onChange={(e) => setItemPrice(e.target.value)}
               margin="normal"
@@ -97,4 +98,4 @@ const SellModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default SellModal; 
+export default SellModal;

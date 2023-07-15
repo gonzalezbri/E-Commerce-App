@@ -32,12 +32,6 @@ export default function AppBar(){
                     <ListItemButton onClick={handleOpenModal} primary='Sell'>
                     <SellModal isOpen={openModal} onClose={() => setOpenModal(false)}/>
                     </ListItemButton>
-                    <ListItemButton onClick={handleOpenModal} primary='SignIn'>
-                    <SignInModal isOpen={openModal} onClose={() => setOpenModal(false)} />
-                    </ListItemButton>
-                    <ListItemButton component={Link} to="/cart" primary='Cart'>
-                    Cart
-                    </ListItemButton>
                 </MyList>
                 </Toolbar>
             </AppbarContainer>
